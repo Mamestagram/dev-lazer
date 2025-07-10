@@ -337,7 +337,7 @@ namespace osu.Game.Online.API
 
                         localUser.Value = me;
                         configSupporter.Value = me.IsSupporter;
-                        state.Value = me.SessionVerified ? APIState.Online : APIState.RequiresSecondFactorAuth;
+                        state.Value = APIState.Online;
                         failureCount = 0;
                     };
 
