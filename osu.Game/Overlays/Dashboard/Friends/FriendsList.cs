@@ -36,6 +36,11 @@ namespace osu.Game.Overlays.Dashboard.Friends
             this.style = style;
             this.friends = friends;
 
+            foreach (var f in friends)
+            {
+                System.Diagnostics.Debug.WriteLine($"friend: {f?.Username} (ID: {f?.Id})");
+            }
+
             RelativeSizeAxes = Axes.X;
             AutoSizeAxes = Axes.Y;
         }

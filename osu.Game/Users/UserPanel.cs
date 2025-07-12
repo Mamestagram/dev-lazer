@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
@@ -48,6 +49,7 @@ namespace osu.Game.Users
         protected UserPanel(APIUser user)
             : base(HoverSampleSet.Button)
         {
+            Debug.Write(user);
             ArgumentNullException.ThrowIfNull(user);
 
             User = user;
