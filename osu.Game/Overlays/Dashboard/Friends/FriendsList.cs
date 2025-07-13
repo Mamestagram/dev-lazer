@@ -27,7 +27,7 @@ namespace osu.Game.Overlays.Dashboard.Friends
 
         private readonly IBindableDictionary<int, UserPresence> friendPresences = new BindableDictionary<int, UserPresence>();
         private readonly OverlayPanelDisplayStyle style;
-        private readonly APIUser[] friends;
+        private readonly APIUser?[] friends;
 
         private FriendsSearchContainer searchContainer = null!;
 
@@ -54,7 +54,7 @@ namespace osu.Game.Overlays.Dashboard.Friends
                 AutoSizeAxes = Axes.Y,
                 Spacing = new Vector2(style == OverlayPanelDisplayStyle.Card ? 10 : 2),
                 SortCriteria = { BindTarget = SortCriteria },
-                ChildrenEnumerable = friends.Select(createUserPanel)
+                ChildrenEnumerable = friends.Where(u => u != null).Select(createUserPanel)
             };
         }
 
@@ -113,6 +113,8 @@ namespace osu.Game.Overlays.Dashboard.Friends
 
         private FilterableUserPanel createUserPanel(APIUser user)
         {
+            System.Diagnostics.Debug.WriteLine($"Creating panel for user: {user?.Username} (ID: {user?.Id})");
+
             UserPanel panel;
 
             switch (style)
