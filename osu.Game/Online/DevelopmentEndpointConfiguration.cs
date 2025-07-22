@@ -7,12 +7,13 @@ namespace osu.Game.Online
     {
         public DevelopmentEndpointConfiguration()
         {
-            WebsiteUrl = APIUrl = @"https://web-a.mamesosutest.com";
+            WebsiteUrl = APIUrl = @"https://lazer.mamesosutest.com";
             APIClientSecret = @"3LP2mhUrV89xxzD1YKNndXHEhWWCRLPNKioZ9ymT";
             APIClientID = "5";
-            SpectatorUrl = $@"{APIUrl}/signalr/spectator";
-            MultiplayerUrl = $@"{APIUrl}/signalr/multiplayer";
-            MetadataUrl = $@"{APIUrl}/signalr/metadata";
+            const string webSocketUrl = @"https://ws-lazer.mamesosutest.com";
+            SpectatorUrl = $@"{webSocketUrl}/signalr/spectator";
+            MultiplayerUrl = $@"{webSocketUrl}/signalr/multiplayer";
+            MetadataUrl = $@"{webSocketUrl}/signalr/metadata";
             BeatmapSubmissionServiceUrl = $@"{APIUrl}/beatmap-submission";
         }
     }
